@@ -8,7 +8,7 @@ import NotFound from '@/app/not-found'
 // 서버 전용
 // import { notFound } from 'next/navigation'; 
 
-export function LifeCyclePage() {
+export default function LifeCyclePage() {
     const count = useLifeCycleStore((s) => s.count);
     const increment = useLifeCycleStore((s) => s.increment);
     const setMounted = useLifeCycleStore((s) => s.setMounted);
@@ -93,7 +93,6 @@ import { addComment } from '@/features/lifecyle/V1/services/getCount';
 // import { useRouter } from 'next/navigation';
 import { useCommentStore } from '@/features/lifecyle/V1/stores/lifecycle-store';
 import { Comment } from '@/features/lifecyle/V1/types/comment';
-
 
 export function CommentForm({ postId, initialComments }: { postId: string; initialComments: Comment[] }) {
     const [author, setAuthor] = useState('');

@@ -1,13 +1,16 @@
+
 import { getPostById, getCommentsByPostId } from '@/features/lifecyle/V1/services/getCount';
 import { notFound } from 'next/navigation';
-import { CommentForm } from '@/features/lifecyle/V1/components/lifecycle';
+import  { CommentForm } from '@/features/lifecyle/V1/components/lifecycle';
 // import { useCommentStore } from '@/features/lifecyle/V1/stores/lifecycle-store';
 
-export default async function PostDetailPage({ params }: { params: { id: string } }) {
-    const post = await getPostById(params.id);
+export default async  function PostDetailPage({ params }: { params: { id: string } }) {
+    const parmas = await params;
+
+    const post = await getPostById(parmas.id);
     if (!post) notFound();
 
-    const comments = await getCommentsByPostId(params.id);
+    const comments = await getCommentsByPostId(parmas.id);
 
     return (
         <div className="p-6">
@@ -32,7 +35,7 @@ export default async function PostDetailPage({ params }: { params: { id: string 
             </div>
 
             <div className="mt-8">
-                <CommentForm postId={params.id} initialComments={comments} />
+                <CommentForm postId={parmas.id} initialComments={comments} />
             </div>
         </div>
     );
