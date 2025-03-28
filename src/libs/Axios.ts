@@ -37,6 +37,10 @@ axiosInstance.interceptors.response.use(
 export default axiosInstance;
 
 
+// axiosInstance.get('path', {
+//     adapter: 'fetch' // by default ['xhr', 'http', 'fetch']
+// })
+
 // const response = await axiosInstance.get('path', {
 //     timeout: 10000,
 //     headers: {
